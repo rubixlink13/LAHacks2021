@@ -44,7 +44,7 @@ async def on_message(message):
     crying_ducc = '<:cryingducc:751955222401646694>'
     bibble = '<:bibble:751866318705262593>'
     author = message.author.mention
-    response_dict = {'hello': f'~Teehee, hello {author}~', 'omegalul' : 'poggers', 'wait': 'sus👖', 'smae': 'smae', 'sad': crying_ducc}
+    response_dict = {'hello': f'~Teehee, hello {author}~', 'omegalul' : 'poggers', 'wait': 'sus👖', 'smae': 'smae', 'sad': crying_ducc, 'smh': 'smh'}
 
     reaction_arr = [praise_john, bibble, crying_ducc]
     
@@ -61,8 +61,6 @@ async def on_message(message):
       split_msg = message.content.split()
       if(len(split_msg) > 1):
         await message.channel.send(f'ikr smh {split_msg[1]}')
-      else:
-        await message.channel.send('smh')
 
 
 client.run(os.getenv('TOKEN'))
