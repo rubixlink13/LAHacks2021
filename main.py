@@ -46,6 +46,7 @@ async def on_message(message):
     reaction_dict = {'praise_john': '<:praisejohn:751866320315744330>', 'bibble': '<:bibble:751866318705262593>', 'crying_ducc': '<:cryingducc:751955222401646694>', 'eyes': '👀'}
     response_dict = {'hello': f'~Teehee, hello {author}~', 'omegalul' : 'poggers', 'wait': 'sus👖', 'smae': 'smae', 'sad': reaction_dict['crying_ducc'], 
     'smh': 'smh', '<:cutie:751869125130846288>': 'what a cutie'}
+    ikr_arr = ['smh', 'imagine']
     
     
     split_msg = message.content.lower().split()
@@ -59,9 +60,6 @@ async def on_message(message):
     elif message.content in praise_dict.keys():
         await praise_dict[message.content](message)
         await message.add_reaction(reaction_dict['praise_john'])
-    elif message.content.startswith('smh'):
-      if(len(split_msg) > 1):
-        await message.channel.send(f'ikr smh {split_msg[1]}')
     elif "i'm" in split_msg:
         for index in range(len(split_msg)-1):
           if(split_msg[index] == "i'm"):
@@ -70,7 +68,7 @@ async def on_message(message):
             return
     elif 'ty' in split_msg:
         await message.channel.send('tea why')
-    elif message.content.lower().startswith('imagine'):
+    elif split_msg[0] in ikr_arr:
         await message.channel.send(f'ikr {message.content.lower()}')
        
-#client.run(token)
+client.run('TOKEN')
