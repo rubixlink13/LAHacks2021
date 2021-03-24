@@ -44,7 +44,8 @@ async def on_ready():
 async def on_message(message):
     author = message.author.mention
     reaction_dict = {'praise_john': '<:praisejohn:751866320315744330>', 'bibble': '<:bibble:751866318705262593>', 'crying_ducc': '<:cryingducc:751955222401646694>', 'eyes': '👀'}
-    response_dict = {'hello': f'~Teehee, hello {author}~', 'omegalul' : 'poggers', 'wait': 'sus👖', 'smae': 'smae', 'sad': reaction_dict['crying_ducc'], 'smh': 'smh', '<:cutie:751869125130846288>': 'what a cutie'}
+    response_dict = {'hello': f'~Teehee, hello {author}~', 'omegalul' : 'poggers', 'wait': 'sus👖', 'smae': 'smae', 'sad': reaction_dict['crying_ducc'], 
+    'smh': 'smh', '<:cutie:751869125130846288>': 'what a cutie'}
     
     
     split_msg = message.content.lower().split()
@@ -69,5 +70,7 @@ async def on_message(message):
             return
     elif 'ty' in split_msg:
         await message.channel.send('tea why')
+    elif message.content.lower().startswith('imagine'):
+        await message.channel.send(f'ikr {message.content.lower()}')
        
-client.run(os.getenv('TOKEN'))
+#client.run(token)
