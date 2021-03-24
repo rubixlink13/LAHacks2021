@@ -40,27 +40,33 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    praise_john = '<:praisejohn:751866320315744330>'
-    crying_ducc = '<:cryingducc:751955222401646694>'
-    bibble = '<:bibble:751866318705262593>'
     author = message.author.mention
-    response_dict = {'hello': f'~Teehee, hello {author}~', 'omegalul' : 'poggers', 'wait': 'sus👖', 'smae': 'smae', 'sad': crying_ducc, 'smh': 'smh'}
-
-    reaction_arr = [praise_john, bibble, crying_ducc]
+    reaction_dict = {'praise_john': '<:praisejohn:751866320315744330>', 'bibble': '<:bibble:751866318705262593>', 'crying_ducc': '<:cryingducc:751955222401646694>'}
+    response_dict = {'hello': f'~Teehee, hello {author}~', 'omegalul' : 'poggers', 'wait': 'sus👖', 'smae': 'smae', 'sad': reaction_dict['crying_ducc'], 'smh': 'smh', '<:cutie:751869125130846288>': 'what a cutie'}
+    
+    
+    split_msg = message.content.lower().split()
     
     if message.author == client.user:
         return
-    elif message.content in reaction_arr:
+    elif message.content in reaction_dict.values():
         await message.channel.send(message.content)
     elif message.content.lower() in response_dict:
         await message.channel.send(response_dict[message.content.lower()])
     elif message.content in praise_dict.keys():
         await praise_dict[message.content](message)
-        await message.add_reaction(praise_john)
+        await message.add_reaction(reaction_dict['praise_john'])
     elif message.content.startswith('smh'):
-      split_msg = message.content.split()
       if(len(split_msg) > 1):
         await message.channel.send(f'ikr smh {split_msg[1]}')
+    elif "i'm" in split_msg:
+        for index in range(len(split_msg)-1):
+          if(split_msg[index] == "i'm"):
+            name = ' '.join(split_msg[index+1:])
+            await message.channel.send(f'hi {name}, nice to meet you hehe')
+            return
+        
+
 
 
 client.run(os.getenv('TOKEN'))
