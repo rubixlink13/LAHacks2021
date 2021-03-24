@@ -41,7 +41,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     author = message.author.mention
-    reaction_dict = {'praise_john': '<:praisejohn:751866320315744330>', 'bibble': '<:bibble:751866318705262593>', 'crying_ducc': '<:cryingducc:751955222401646694>'}
+    reaction_dict = {'praise_john': '<:praisejohn:751866320315744330>', 'bibble': '<:bibble:751866318705262593>', 'crying_ducc': '<:cryingducc:751955222401646694>', 'eyes': '👀'}
     response_dict = {'hello': f'~Teehee, hello {author}~', 'omegalul' : 'poggers', 'wait': 'sus👖', 'smae': 'smae', 'sad': reaction_dict['crying_ducc'], 'smh': 'smh', '<:cutie:751869125130846288>': 'what a cutie'}
     
     
@@ -65,6 +65,8 @@ async def on_message(message):
             name = ' '.join(split_msg[index+1:])
             await message.channel.send(f'hi {name}, nice to meet you hehe')
             return
+    elif 'ty' in split_msg:
+        await message.channel.send('tea why')
         
 
 
