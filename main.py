@@ -70,7 +70,4 @@ async def on_message(message):
     elif 'ty' in split_msg:
         await message.channel.send('tea why')
         
-
-
-
-client.run(os.getenv('TOKEN'))
+client.run('ODI0MzA4MDc4MTE1NTUzMzcz.YFteuA.Oq7NQdlsMPnlijj05kKT0b0tGdE')
