@@ -43,8 +43,13 @@ async def on_ready():
 @client.event
 async def on_message(message):
     author = message.author.mention
-    reaction_dict = {'praise_john': '<:praisejohn:751866320315744330>', 'bibble': '<:bibble:751866318705262593>', 'crying_ducc': '<:cryingducc:751955222401646694>', 'eyes': '👀'}
-    response_dict = {'hello': f'~Teehee, hello {author}~', 'omegalul' : 'poggers', 'wait': 'sus👖', 'smae': 'smae', 'sad': reaction_dict['crying_ducc'], 
+    reaction_dict = {'praise_john': '<:praisejohn:751866320315744330>', 
+	'bibble': '<:bibble:751866318705262593>', 'crying_ducc': 
+	'<:cryingducc:751955222401646694>', 'eyes': '👀', 'bruh': 
+	'<:bruh:751869125076189224>'}
+    response_dict = {'hello': f'~Teehee, hello {author}~', 'omegalul' : 
+	'poggers', 'wait': 'sus👖', 'smae': 'smae', 'sad': 
+	reaction_dict['crying_ducc'], 'bruh', reaction_dict['bruh'],
     'smh': 'smh', '<:cutie:751869125130846288>': 'what a cutie'}
     ikr_arr = ['smh', 'imagine']
     
@@ -71,4 +76,3 @@ async def on_message(message):
     elif split_msg[0] in ikr_arr:
         await message.channel.send(f'ikr {message.content.lower()}')
        
-client.run('TOKEN')
