@@ -49,7 +49,7 @@ async def on_message(message):
 	'<:bruh:751869125076189224>'}
     response_dict = {'hello': f'~Teehee, hello {author}~', 'omegalul' : 
 	'poggers', 'wait': 'sus👖', 'smae': 'smae', 'sad': 
-	reaction_dict['crying_ducc'], 'bruh', reaction_dict['bruh'],
+	reaction_dict['crying_ducc'], 'bruh': reaction_dict['bruh'],
     'smh': 'smh', '<:cutie:751869125130846288>': 'what a cutie'}
     ikr_arr = ['smh', 'imagine']
     
@@ -75,4 +75,4 @@ async def on_message(message):
         await message.channel.send('tea why')
     elif split_msg[0] in ikr_arr:
         await message.channel.send(f'ikr {message.content.lower()}')
-       
+      
