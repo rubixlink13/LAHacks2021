@@ -75,10 +75,10 @@ async def on_message(message):
         await message.channel.send('tea why')
     elif split_msg[0] in ikr_arr:
         await message.channel.send(f'ikr {message.content.lower()}')
-	elif "feel better" in message.content.lower():
-		for index int range(len(split_msg)-1):
-			if(split_msg[index] == "better"):
-				name = ' '.join(split_msg[index+1])
-				await message.channel.send(f'yeah feel better {name} :((')
-				return
+    elif 'better' in message.content.lower():
+        for index in range(len(split_msg)-1):
+            if(split_msg[index] == "better"):
+                name = ' '.join(split_msg[index+1])
+                await message.channel.send(f'yeah feel better {name} :((')
+                return
 
