@@ -78,7 +78,7 @@ async def on_message(message):
     elif 'better' in message.content.lower():
         for index in range(len(split_msg)-1):
             if(split_msg[index] == "better"):
-                name = ' '.join(split_msg[index+1])
+                name = ' '.join(split_msg[index+1:])
                 await message.channel.send(f'yeah feel better {name} :((')
                 return
 
