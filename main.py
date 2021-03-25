@@ -65,9 +65,9 @@ async def on_message(message):
     elif message.content in praise_dict.keys():
         await praise_dict[message.content](message)
         await message.add_reaction(reaction_dict['praise_john'])
-    elif "i'm" in split_msg:
+    elif "i'm" in split_msg or "i’m" in split_msg:
         for index in range(len(split_msg)-1):
-          if(split_msg[index] == "i'm"):
+          if(split_msg[index] == "i'm" or split_msg[index] == "i’m"):
             name = ' '.join(split_msg[index+1:])
             await message.channel.send(f'hi {name}, nice to meet you hehe')
             return
@@ -75,4 +75,10 @@ async def on_message(message):
         await message.channel.send('tea why')
     elif split_msg[0] in ikr_arr:
         await message.channel.send(f'ikr {message.content.lower()}')
-      
+	elif "feel better" in message.content.lower():
+		for index int range(len(split_msg)-1):
+			if(split_msg[index] == "better"):
+				name = ' '.join(split_msg[index+1])
+				await message.channel.send(f'yeah feel better {name} :((')
+				return
+
