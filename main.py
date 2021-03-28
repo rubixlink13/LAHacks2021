@@ -56,10 +56,11 @@ async def on_message(message):
     response_dict = {'hello': f'~Teehee, hello {author}~', 'omegalul' : 
 	'poggers', 'wait': 'sus👖', 'smae': 'smae', 'sad': 
 	reaction_dict['crying_ducc'], 'bruh': reaction_dict['bruh'],
-    'smh': 'smh', '<:cutie:751869125130846288>': 'what a cutie',
 	'interesting': "ain't that wacky", 'no': 'no ❤️', 'yes':
 	'yes ❤️', 'nice': 'nice', "11:11": "MAKE A WISH!", 'sunday': 
-	'DID SOMEONE SAY ATTACK ON TITAN SUNDAYS?!'}
+	'DID SOMEONE SAY ATTACK ON TITAN SUNDAYS?!',
+    'smh': 'smh','<:cutie:751869125130846288>': 'what a cutie', 
+	'simp' : '<:simp:751866320726786138>'}
     ikr_arr = ['smh', 'imagine']
     
     
@@ -100,5 +101,4 @@ async def on_message(message):
         await message.channel.send("no u")
     elif contains(split_msg, response_dict.keys()):
         await message.channel.send(response_dict[contains(split_msg, response_dict.keys())])
-
 
