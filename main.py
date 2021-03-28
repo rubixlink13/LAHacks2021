@@ -83,4 +83,8 @@ async def on_message(message):
                 name = ' '.join(split_msg[index+1:])
                 await message.channel.send(f'yeah feel better {name} :((')
                 return
+    elif 'hehe' in message.content.lower():
+        await message.channel.send('teehee')
+    elif 'teehee' in message.content.lower():
+        await message.channel.send('hehe')
 
