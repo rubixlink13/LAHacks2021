@@ -31,6 +31,12 @@ async def react_johno(message):
     await message.add_reaction('🇳')
     await message.add_reaction('🅾️')
 
+def contains(list1, list2):
+    for obj1 in list1:
+        if obj1 in list2:
+            return obj1
+    return False
+
 praise_dict = {'DAILY': react_daily, 'PRAISE': react_praise, 'JOHN': react_john, 'JOHNO': react_johno}
 
 @client.event
@@ -50,7 +56,10 @@ async def on_message(message):
     response_dict = {'hello': f'~Teehee, hello {author}~', 'omegalul' : 
 	'poggers', 'wait': 'sus👖', 'smae': 'smae', 'sad': 
 	reaction_dict['crying_ducc'], 'bruh': reaction_dict['bruh'],
-    'smh': 'smh', '<:cutie:751869125130846288>': 'what a cutie'}
+    'smh': 'smh', '<:cutie:751869125130846288>': 'what a cutie',
+	'interesting': "ain't that wacky", 'no': 'no ❤️', 'yes':
+	'yes ❤️', 'nice': 'nice', "11:11": "MAKE A WISH!", 'sunday': 
+	'DID SOMEONE SAY ATTACK ON TITAN SUNDAYS?!'}
     ikr_arr = ['smh', 'imagine']
     
     
@@ -58,10 +67,6 @@ async def on_message(message):
     
     if message.author == client.user:
         return
-    elif message.content in reaction_dict.values():
-        await message.channel.send(message.content)
-    elif message.content.lower() in response_dict:
-        await message.channel.send(response_dict[message.content.lower()])
     elif message.content in praise_dict.keys():
         await praise_dict[message.content](message)
         await message.add_reaction(reaction_dict['praise_john'])
@@ -73,12 +78,24 @@ async def on_message(message):
             return
     elif 'ty' in split_msg:
         await message.channel.send('tea why')
-    elif split_msg[0] in ikr_arr:
+    elif 'np' in split_msg:
+        await message.channel.send('enn pee')
+    elif split_msg[0] in ikr_arr and len(split_msg) > 1:
         await message.channel.send(f'ikr {message.content.lower()}')
+    elif message.content in reaction_dict.values():
+        await message.channel.send(message.content)
     elif 'better' in message.content.lower():
         for index in range(len(split_msg)-1):
             if(split_msg[index] == "better"):
                 name = ' '.join(split_msg[index+1:])
                 await message.channel.send(f'yeah feel better {name} :((')
                 return
+    elif 'perfect' in message.content.lower():
+        await message.channel.send(f"No, YOU'RE perfect {author}")
+    elif 'beautiful' in message.content.lower():
+        await message.channel.send(f"No, YOU'RE beautiful {author}")
+    elif "you're" in message.content.lower() or "you’re" in message.content.lower():
+        await message.channel.send("no u")
+    elif contains(split_msg, response_dict.keys()):
+        await message.channel.send(response_dict[contains(split_msg, response_dict.keys())])
 
