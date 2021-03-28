@@ -73,7 +73,7 @@ async def on_message(message):
             return
     elif 'ty' in split_msg:
         await message.channel.send('tea why')
-    elif split_msg == ['nightmare']:
+    elif 'nightmare' in split_msg:
         await message.channel.send('nightmare')
     elif split_msg[0] in ikr_arr:
         await message.channel.send(f'ikr {message.content.lower()}')
