@@ -80,6 +80,8 @@ async def on_message(message):
         await message.channel.send('tea why')
     elif 'np' in split_msg:
         await message.channel.send('enn pee')
+    elif 'nightmare' in split_msg:
+        await message.channel.send('nightmare')
     elif split_msg[0] in ikr_arr and len(split_msg) > 1:
         await message.channel.send(f'ikr {message.content.lower()}')
     elif message.content in reaction_dict.values():
