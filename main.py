@@ -50,7 +50,7 @@ async def on_message(message):
     response_dict = {'hello': f'~Teehee, hello {author}~', 'omegalul' : 
 	'poggers', 'wait': 'sus👖', 'smae': 'smae', 'sad': 
 	reaction_dict['crying_ducc'], 'bruh': reaction_dict['bruh'],
-    'smh': 'smh', '<:cutie:751869125130846288>': 'what a cutie'}
+    'smh': 'smh', '<:cutie:751869125130846288>': 'what a cutie', 'simp' : '<:simp:751866320726786138>'}
     ikr_arr = ['smh', 'imagine']
     
     
