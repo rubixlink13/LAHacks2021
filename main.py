@@ -101,3 +101,4 @@ async def on_message(message):
     elif contains(split_msg, response_dict.keys()):
         await message.channel.send(response_dict[contains(split_msg, response_dict.keys())])
 
+
