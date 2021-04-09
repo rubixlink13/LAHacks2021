@@ -52,7 +52,7 @@ async def on_message(message):
     reaction_dict = {'praise_john': '<:praisejohn:751866320315744330>', 
 	'bibble': '<:bibble:751866318705262593>', 'crying_ducc': 
 	'<:cryingducc:751955222401646694>', 'eyes': '👀', 'bruh': 
-	'<:bruh:751869125076189224>'}
+	'<:bruh:751869125076189224>', 'pain': '<:pain:751866319938257057>'}
     response_dict = {'hello': f'~Teehee, hello {author}~', 'omegalul' : 
 	'poggers', 'wait': 'sus👖', 'smae': 'smae', 'sad': 
 	reaction_dict['crying_ducc'], 'bruh': reaction_dict['bruh'],
@@ -60,7 +60,9 @@ async def on_message(message):
 	'yes ❤️', 'nice': 'nice', "11:11": "MAKE A WISH!", 'sunday': 
 	'DID SOMEONE SAY ATTACK ON TITAN SUNDAYS?!',
     'smh': 'smh','<:cutie:751869125130846288>': 'what a cutie', 
-	'simp' : '<:simp:751866320726786138>'}
+	'simp' : '<:simp:751866320726786138>', 'pain' :
+	'<:pain:751866319938257057>'}
+
     ikr_arr = ['smh', 'imagine']
     
     
@@ -68,6 +70,8 @@ async def on_message(message):
     
     if message.author == client.user:
         return
+    elif 'echo' == split_msg[0]:
+        await message.channel.send(' '.join(split_msg[1:]))
     elif message.content in praise_dict.keys():
         await praise_dict[message.content](message)
         await message.add_reaction(reaction_dict['praise_john'])
