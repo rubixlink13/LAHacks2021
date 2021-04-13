@@ -9,6 +9,9 @@ last_msg = dict()
 last_time = '0:00'
 morning_dict = dict()
 
+three_am = '03:00'
+seven_am = '07:00'
+
 client = discord.Client()
 friends_list = [
 '<@!635960985416368149>', ' <@!354126467837329408>', 
@@ -188,6 +191,10 @@ async def on_message(message):
     
     global last_msg    
     global morning_dict
+
+    now = datetime.now()
+    current_time = now.strftime("%H:%M")
+
     if(message.channel not in last_msg):
         last_msg[message.channel] = message
 
@@ -238,6 +245,9 @@ async def on_message(message):
         f.write(str(message.author) + " ")
         await message.channel.send(f"GOOD MORNING {author}")
         f.close()
+    elif (three_am <= now <= seven_am) and (message.author.id == 635960985416368149):
+        await message.channel.send("go sleep liz !!")
+    
 
     last_msg[message.channel] = message
 
