@@ -247,6 +247,8 @@ async def on_message(message):
         f.close()
     elif (three_am <= now <= seven_am) and (message.author.id == 635960985416368149):
         await message.channel.send("go sleep liz !!")
+    elif "shut up liz" in message.content.loser():
+        await message.channel.send("yea shut up liz !!")
     
 
     last_msg[message.channel] = message
